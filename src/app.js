@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const routes = require('./routes');
+const { port } = require('./config/env')
 
 app.use(express.json());
 
