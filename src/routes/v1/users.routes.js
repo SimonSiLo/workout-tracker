@@ -5,9 +5,16 @@ const usersController = require('../../controllers/users.controller');
 router.use((req, res, next) => {
   req.users = [
     {
-      id: "b42f53fa-7b30-4b91-8d36-dc1c6ef27611",
+      id: "1",
       name: "Simon sierra",
       email: "simon@example.com",
+      role: "admin",
+      createdAt: "2025-09-12T12:00:00Z"
+    },
+    {
+      id: "2",
+      name: "Carlos navia",
+      email: "carlos@example.com",
       role: "user",
       createdAt: "2025-09-12T12:00:00Z"
     }
