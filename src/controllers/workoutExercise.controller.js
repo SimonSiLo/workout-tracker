@@ -1,10 +1,10 @@
 const workoutExerciseController = {
-  // GET /workout-exercises 
+  // GET /workoutexercise
   getAllWorkoutExercises: (req, res) => {
     res.status(200).json(req.workoutExercises);
   },
 
-  // GET /workout-exercises/:id 
+  // GET /workoutexercise/:id 
   getWorkoutExerciseById: (req, res) => {
     const { id } = req.params;
     const workoutExercise = req.workoutExercises.find(we => we.id === parseInt(id));
@@ -16,7 +16,7 @@ const workoutExerciseController = {
     res.status(200).json(workoutExercise);
   },
 
-  // POST /workout-exercises
+  // POST /workoutexercise
   createWorkoutExercise: (req, res) => {
     const { entrenamiento_id, ejercicio_id, series, repeticiones_por_serie, peso_kg } = req.body;
 
@@ -39,7 +39,7 @@ const workoutExerciseController = {
     res.status(201).json(newWorkoutExercise);
   },
 
-  // PUT /workout-exercises/:id
+  // PUT /workoutexercise/:id
   updateWorkoutExercise: (req, res) => {
     const { id } = req.params;
     const { series, repeticiones_por_serie, peso_kg } = req.body;
@@ -63,7 +63,7 @@ const workoutExerciseController = {
     res.status(200).json(req.workoutExercises[index]);
   },
 
-  // DELETE /workout-exercises/:id 
+  // DELETE /workoutexercise/:id 
   deleteWorkoutExercise: (req, res) => {
     const { id } = req.params;
     const index = req.workoutExercises.findIndex(we => we.id === parseInt(id));
