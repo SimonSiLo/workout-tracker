@@ -113,6 +113,29 @@ const workoutPlanController = {
 
     req.workouts[workoutIndex].series.push(newSeries);
     res.status(201).json(newSeries);
+  },
+
+  //PATCH /workouts/:id
+  patchWorkout: (req, res) => {
+    const { id } = req.params;
+    const { nombre, descripcion, fecha_programada, comentarios } = req.body;
+
+    const index = req.workouts.findIndex(w => w.id === parseInt(id));
+    if (index === -1) {
+      return res.status(404).json({ error: 'Entrenamiento no encontrado' });
+    }
+
+    const updatedWorkout = {
+      ...req.workouts[index],
+      ...(nombre && { nombre }),
+      ...(descripcion && { descripcion }),
+      ...(fecha_programada && { fecha_programada }),
+      ...(comentarios !== undefined && { comentarios })
+    };
+
+    req.workouts[index] = updatedWorkout;
+
+    res.status(200).json(updatedWorkout);
   }
 };
 

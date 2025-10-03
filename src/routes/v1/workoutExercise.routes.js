@@ -36,6 +36,7 @@ router.get('/', workoutExerciseController.getAllWorkoutExercises);
 router.get('/:id', workoutExerciseController.getWorkoutExerciseById);
 router.post('/', workoutExerciseController.createWorkoutExercise);
 router.put('/:id', workoutExerciseController.updateWorkoutExercise);
+router.patch('/:id', workoutExerciseController.patchWorkoutExercise);
 router.delete('/:id', workoutExerciseController.deleteWorkoutExercise);
 
 module.exports = router;

@@ -42,6 +42,7 @@ router.get('/', workoutPlanController.getAllWorkouts);
 router.get('/:id', workoutPlanController.getWorkoutById);
 router.post('/', workoutPlanController.createWorkout);
 router.put('/:id', workoutPlanController.updateWorkout);
+router.patch('/:id', workoutPlanController.patchWorkout);
 router.delete('/:id', workoutPlanController.deleteWorkout);
 router.get('/:id/series', workoutPlanController.getWorkoutSeries);
 router.post('/:id/series', workoutPlanController.addWorkoutSeries);

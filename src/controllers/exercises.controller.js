@@ -83,6 +83,29 @@ const exercisesController = {
 
     const deletedExercise = req.exercises.splice(index, 1);
     res.status(200).json({ deleted: deletedExercise[0].id });
+  },
+
+  //PATCH /exercises/:id
+  patchExercise: (req, res) => {
+    const { id } = req.params;
+    const { nombre, descripcion, categoria, grupo_muscular } = req.body;
+
+    const index = req.exercises.findIndex(ex => ex.id === parseInt(id));
+    if (index === -1) {
+      return res.status(404).json({ error: 'Ejercicio no encontrado' });
+    }
+
+    const updatedExercise = {
+      ...req.exercises[index],
+      ...(nombre && { nombre }),
+      ...(descripcion && { descripcion }),
+      ...(categoria && { categoria }),
+      ...(grupo_muscular && { grupo_muscular })
+    };
+
+    req.exercises[index] = updatedExercise;
+
+    res.status(200).json(updatedExercise);
   }
 };
 
